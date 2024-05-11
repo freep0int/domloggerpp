@@ -16,7 +16,8 @@ const main = async () => {
         var validDomain = false;
         if (data.allowedDomains) {
             for (let d of data.allowedDomains) {
-                if (location.host.match(`^${d}$`)) {
+                let regex = new RegExp(d); 
+                if (location.host.match(regex)) {
                     validDomain = true;
                 }
             }
